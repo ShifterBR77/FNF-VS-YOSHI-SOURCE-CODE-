@@ -31,7 +31,6 @@ jobs:
           haxelib install extension-androidtools --quiet
           haxelib install actuate --quiet
           haxelib install newgrounds --quiet
-          haxelib install polymod --quiet
 
       - name: Setup Git hxcpp
         run: |
