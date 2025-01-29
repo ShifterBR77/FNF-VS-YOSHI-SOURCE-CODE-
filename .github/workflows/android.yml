@@ -29,6 +29,7 @@ jobs:
           haxelib install hscript --quiet
           haxelib install hxvlc --quiet
           haxelib install extension-androidtools --quiet
+          haxelib install actuate 1.9.0 --quiet
 
       - name: Setup Git hxcpp
         run: |
