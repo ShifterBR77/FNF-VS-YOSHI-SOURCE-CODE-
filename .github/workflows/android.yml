@@ -30,7 +30,7 @@ jobs:
           haxelib install hxvlc --quiet
           haxelib install extension-androidtools --quiet
           haxelib install actuate --quiet
-          haxelib install newgrounds --quiet
+          haxelib install newgrounds 1.3.0 --quiet
 
       - name: Setup Git hxcpp
         run: |
