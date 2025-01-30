@@ -50,23 +50,12 @@ jobs:
       - name: Building
         run: haxelib run lime build android -release
 
-      - name: Save Current Cache
-        id: cache-release-build-android-save
-        uses: actions/cache/save@main
-        with:
-          path: |
-            .haxelib/
-            export/release/android/haxe/
-            export/release/android/obj/
-          key: cache-android-build
-
       - name: Upload Artifact
         uses: actions/upload-artifact@main
         with:
-          name: ata
-          path: export/release/android/bin/app/build/outputs/apk/debug
+          name: androidBuild
+          path: exportJon/android/bin/app/build/outputs/apk/debug
           if-no-files-found: warn
-          
   Publish:
     needs: Android
     runs-on: ubuntu-latest
@@ -77,3 +66,12 @@ jobs:
         with:
            name: androidBuild
            path: ${{github.workspace}}
+
+      - name: Publish
+        uses: marvinpinto/action-automatic-releases@latest
+        with:
+          repo_token: ${{secrets.GITHUB_TOKEN}}
+          prerelease: false
+          automatic_release_tag: 'v1.0.0-android'
+          title: 'Android Release 1.0.0'
+          files: ${{github.workspace}}/BOB-debug.apk
