@@ -44,6 +44,7 @@ jobs:
           haxelib setup ~/haxelib
           haxelib install hxcpp 4.2.1 > /dev/null --quiet
           haxelib install hmm --quiet
+          haxelib install newgrounds 1.3.0
           haxelib run hmm install
 
       - name: Configure Android
