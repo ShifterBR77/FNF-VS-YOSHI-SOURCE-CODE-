@@ -54,7 +54,7 @@ jobs:
         uses: actions/upload-artifact@main
         with:
           name: androidBuild
-          path: exportJon/android/bin/app/build/outputs/apk/debug
+          path: FNF-VS-YOSHI-SOURCE-CODE-/tree/master/build/android/bin/app/build/outputs/apk/debug
           if-no-files-found: warn
   Publish:
     needs: Android
@@ -66,12 +66,3 @@ jobs:
         with:
            name: androidBuild
            path: ${{github.workspace}}
-
-      - name: Publish
-        uses: marvinpinto/action-automatic-releases@latest
-        with:
-          repo_token: ${{secrets.GITHUB_TOKEN}}
-          prerelease: false
-          automatic_release_tag: 'v1.0.0-android'
-          title: 'Android Release 1.0.0'
-          files: ${{github.workspace}}/BOB-debug.apk
